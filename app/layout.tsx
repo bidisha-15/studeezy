@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-// import AuthProvider from "@/components/AuthProvider";
+import AuthProvider from "@/components/AuthProvider";
 import { Toaster } from "sonner";
-// import { EdgeStoreProvider } from "@/lib/edgestore";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Idk!",
-  description: "idk yaar, how many times do I need to tell you",
-};
+  title: "Studeezy",
+  description: "Making learning fun and easier!",
+
 
 export default function RootLayout({
   children,
@@ -19,13 +18,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        {/* <AuthProvider>
-          <EdgeStoreProvider> */}
-            {children}
-          {/* </EdgeStoreProvider>
-        </AuthProvider> */}
-        <Toaster />
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <AuthProvider>
+          {children}
+          <Toaster />
+        </AuthProvider>
       </body>
     </html>
   );
