@@ -5,7 +5,7 @@ import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Toolti
 
 interface AnalyticsChartCardProps {
   title: string;
-  data: any[];
+  data: string[];
   type: 'bar' | 'pie' | 'line';
   dataKey?: string;
   xAxisKey?: string;
@@ -46,7 +46,7 @@ export function AnalyticsChartCard({
               paddingAngle={5}
               dataKey={dataKey}
             >
-              {data.map((entry, index) => (
+              {data?.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
               ))}
             </Pie>
@@ -64,7 +64,7 @@ export function AnalyticsChartCard({
           </LineChart>
         );
       default:
-        return null;
+        return (<></>);
     }
   };
 
